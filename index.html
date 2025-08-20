@@ -1,37 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sparsh. The Godfather | The Captain Slow | The Proest of Pros</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sparsh | Godfather. The Proest of Pros.</title>
+    <meta name="description" content="Feeding data. Training intelligence. Deploying tomorrow.">
+    <link rel="author" href="https://github.com/sparsh0106">
+    <meta name="author" content="BeastCodZ">
+    <meta name="keywords" content="Sparsh, Portfolio, Machine Learning, Deep Learning, Artificial Intelligence, Neural Networks, Computer Vision, NLP, Research Projects, Data Science, Robotics, Student">
+    <meta property="og:title" content="Sparsh | Godfather. The Proest of Pros">
+    <meta property="og:description" content="Tinkering with tech, breaking the rules, and building what matters. Code meets chaos and every byte tells a story. Because even mediocrity has standards.">
+    <meta property="og:image" content="https://beastcodz.github.io/image.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sparsh | Godfather. The Proest of Pros">
+    <meta name="twitter:description" content="Feeding data. Training intelligence. Deploying tomorrow.">
+    <meta name="twitter:image" content="https://beastcodz.github.io/image.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #0d0d0d; /* Dark hacker vibe */
+            color: #00FFCC; /* Neon cyan text */
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+        /* Particle background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            top: 0;
+            left: 0;
+        }
+        
+        /* Layout */
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+        }
+        
+        /* Navigation */
+        .nav-toggle {
+            display: block;
+            position: fixed;
+            top: 1.25rem;
+            right: 1.75rem;
+            z-index: 50;
+            color: #00FFCC;
+            font-size: 2rem;
+            background: rgba(0, 255, 204, 0.03);
+            border: none;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(13, 13, 13, 0.83);
+            z-index: 40;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+        
+        .mobile-nav a {
+            font-size: 1.5rem;
+            transition: color 0.3s;
+            color: #00FFCC;
+            text-decoration: none;
+        }
+        
+        .mobile-nav a:hover {
+            color: white;
+        }
+        
+        .mobile-nav a:first-child {
+            color: #FF4444;
+            animation: flicker 2s infinite alternate;
+        }
+        
+        .desktop-nav {
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: fixed;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+        }
+        
+        .nav-item {
+            width: 100%;
+            position: relative;
+            padding: 0.5rem 0.5rem;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .nav-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #00FFCC;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-link {
+                font-size: 1.25rem;
+            }
+        }
+        
+        .nav-link:hover {
+            color: white;
+        }
+        
+        .nav-link.active {
+            color: #FF4444;
+            animation: flicker 2s infinite alternate;
+        }
+        
+        .underline {
+            height: 0.125rem;
+            min-width: 50%;
+            max-width: 100%;
+            background: #00FFCC;
+            border-radius: 2px;
+            transition: all 0.3s;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+        
+        .nav-item:hover .underline {
+            transform: scaleX(1);
+        }
+        
+        .nav-item .underline.active {
+            background: #FF4444;
+            transform: scaleX(1);
+        }
+        
+        /* Content */
+        .content-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .content-section {
+                width: 75%;
+            }
+        }
+        
+        .content-container {
+            width: 100%;
+            max-width: 56rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .terminal-box {
+            background: rgba(20, 109, 97, 0.03);
+            color: #00FFCC;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease-in-out;
+            max-width: 64rem;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (min-width: 640px) {
+            .terminal-box {
+                padding: 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .terminal-box {
+                padding: 2.5rem;
+            }
+        }
+        
+        .profile-section {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .profile-section {
+                flex-direction: row;
+            }
+        }
+        
+        .profile-icon {
+            min-width: 32px;
+            flex-shrink: 0;
+        }
+        
+        .profile-content {
+            flex: 1;
+        }
+        
+        .profile-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .profile-title {
+                font-size: 1.25rem;
+            }
+        }
+        
+        .accent {
+            color: #FF4444;
+        }
+        
+        .profile-text {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .profile-text {
+                font-size: 1rem;
+            }
+        }
+        
+        .quote {
+            font-size: 0.75rem;
+            margin-top: 0.75rem;
+            color: rgba(0, 255, 204, 0.67);
+            font-style: italic;
+        }
+        
+        .warning {
+            border-top: 1px solid rgba(0, 255, 204, 0.33);
+            padding-top: 1rem;
+            font-size: 0.75rem;
+            color: #FF4444;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Animations */
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.6;
+            }
+        }
+        
+        .flicker {
+            animation: flicker 2s infinite alternate;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>> whoami</h1>
-    <p class="tagline">Hi, I'm <span class="highlight">Sparsh</span> — a robotics & AI enthusiast exploring the intersection of <b>code</b>, <b>machine learning</b>, and <b>creativity</b>.</p>
-
-    <div class="section">
-      <h2>> about_me</h2>
-      <p>I'm passionate about building intelligent systems, experimenting with robotics, and leveraging AI to solve real-world problems.</p>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <!-- Navigation Section -->
+        <div class="nav-section">
+            <button class="nav-toggle" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12h16"></path>
+                    <path d="M4 18h16"></path>
+                    <path d="M4 6h16"></path>
+                </svg>
+            </button>
+            
+            <div class="mobile-nav">
+                <a href="/" class="flicker">&lt;About&gt;</a>
+                <a href="/skills">&lt;Skills&gt;</a>
+                <a href="/projects">&lt;Projects&gt;</a>
+                <a href="/education">&lt;Education&gt;</a>
+                <a href="/contact">&lt;Contact&gt;</a>
+                <a href="/misc">&lt;Misc&gt;</a>
+            </div>
+            
+            <div class="desktop-nav">
+                <a class="nav-item" href="/">
+                    <span class="nav-link active">
+                        &lt;About&gt;
+                        <div class="underline active"></div>
+                    </span>
+                </a>
+                <a class="nav-item" href="/skills">
+                    <span class="nav-link">
+                        &lt;Skills&gt;
+                        <div class="underline"></div>
+                    </span>
+                </a>
+                
+                <a class="nav-item" href="/projects">
+                    <span class="nav-link">
+                        &lt;Projects&gt;
+                        <div class="underline"></div>
+                    </span>
+                </a>
+                <a class="nav-item" href="/education">
+                    <span class="nav-link">
+                        &lt;Education&gt;
+                        <div class="underline"></div>
+                    </span>
+                </a>
+                <a class="nav-item" href="/contact">
+                    <span class="nav-link">
+                        &lt;Contact&gt;
+                        <div class="underline"></div>
+                    </span>
+                </a>
+                <a class="nav-item" href="/misc">
+                    <span class="nav-link">
+                        &lt;Misc&gt;
+                        <div class="underline"></div>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content-section">
+            <div class="content-container">
+                <div class="terminal-box">
+                    <div class="profile-section">
+                        <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 20a6 6 0 0 0-12 0"></path>
+                            <circle cx="12" cy="10" r="4"></circle>
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                        <div class="profile-content">
+                            <h3 class="profile-title">&gt; import name → <span class="accent">Sparsh | The Godfather. The Proest of Pros.</span></h3>
+                            <p class="profile-text">I don’t just build projects — I teach machines to think. My curiosity lies at the intersection of intelligence and innovation — where data becomes meaning, and algorithms evolve into ideas.</p>
+                            <p class="profile-text">From Deep Learning experiments to hands-on robotics, I’m exploring how technology can learn, adapt, and create. As I navigate my Engineering journey, I’m not just learning the rules — I’m redefining them.</p>
+                        </div>
+                    </div>
+                    <div class="warning">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" x2="12" y1="8" y2="12"></line>
+                            <line x1="12" x2="12.01" y1="16" y2="16"></line>
+                        </svg>
+                        Warning: User operates on random energy bursts. May build empires today or binge nap for 12 hours straight.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-      <h2>> projects</h2>
-      <ul>
-        <li><b>EEG Mind-Wandering Detection</b> — ML-based EEG signal analysis</li>
-        <li><b>ECG Arrhythmia Classifier</b> — Deep learning on medical signals</li>
-        <li><b>Computer Vision Learning Hub</b> — Exploring image processing & CV models</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>> contact</h2>
-      <p>Let's build something amazing together!</p>
-      <p>Email: <a href="mailto:sparsh@example.com">sparsh@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#00FFCC" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#00FFCC",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Mobile menu toggle
+            const menuButton = document.querySelector('.nav-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+            
+            menuButton.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
